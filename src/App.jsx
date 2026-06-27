@@ -684,11 +684,11 @@ function App() {
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div 
-                initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                initial={{ opacity: 0, y: -20, x: "-50%", scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
+                exit={{ opacity: 0, y: -20, x: "-50%", scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="fixed top-24 left-1/2 -translate-x-1/2 w-[90%] z-[45] bg-[#05070a]/95 backdrop-blur-2xl border border-primary/30 rounded-[2rem] p-6 shadow-[0_0_40px_rgba(0,0,0,0.9)] flex flex-col items-center gap-4 md:hidden"
+                className="fixed top-24 left-1/2 w-[90%] z-[45] bg-[#05070a]/95 backdrop-blur-2xl border border-primary/30 rounded-[2rem] p-6 shadow-[0_0_40px_rgba(0,0,0,0.9)] flex flex-col items-center gap-4 md:hidden"
               >
                 <a onClick={() => { goHome(); setIsMobileMenuOpen(false); }} className={`cursor-pointer px-6 py-3 w-full text-center rounded-xl transition-all duration-300 font-bold ${currentView === 'home' ? 'bg-primary/20 text-primary' : 'text-gray-300 hover:bg-primary/10 hover:text-primary'}`}>
                   Home
@@ -731,12 +731,34 @@ function App() {
                       <motion.p variants={fadeUp} className="text-gray-400 text-lg max-w-lg mt-4 leading-relaxed font-light">
                         Building premium digital experiences with <strong className="text-white font-semibold">robust backend systems</strong> & <strong className="text-white font-semibold">intelligent workflows</strong>, focused on clarity, performance, and real-world usability.
                       </motion.p>
-                      <motion.a variants={fadeUp} href="/Kiran_FullStack_Resume.pdf" download="Kiran_FullStack_Resume.pdf" className="mt-8 relative inline-flex group items-center justify-center px-8 py-4 rounded-xl bg-[#12141c] border border-primary/30 text-white hover:border-primary/80 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-[0_0_20px_rgba(0,230,57,0.2)]">
+                      <motion.a variants={fadeUp} href="/Kiran_FullStack_Resume.pdf" download="Kiran_FullStack_Resume.pdf" className="mt-8 w-full sm:w-auto relative inline-flex group items-center justify-center px-8 py-4 rounded-xl bg-[#12141c] border border-primary/30 text-white hover:border-primary/80 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-[0_0_20px_rgba(0,230,57,0.2)]">
                         <div className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
                         <span className="flex items-center gap-3 z-10 font-medium">
                           <span className="material-symbols-outlined text-primary">download</span> Download CV
                         </span>
                       </motion.a>
+                      
+                      {/* Social dock */}
+                      <motion.div variants={fadeUp} className="mt-4 flex flex-wrap gap-4 justify-start w-full sm:w-auto z-20">
+                        <a href="https://github.com/kkiran47" target="_blank" rel="noreferrer" className="h-12 flex-1 sm:flex-none min-w-[3rem] px-[12px] rounded-full bg-[#12141c] border border-primary/30 flex items-center justify-center hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_25px_rgba(0,230,57,0.9)] transition-all duration-300 group overflow-hidden">
+                          <i className="devicon-github-original text-2xl text-gray-400 group-hover:text-primary transition-colors"></i>
+                          <span className="max-w-0 opacity-0 group-hover:max-w-[100px] group-hover:opacity-100 group-hover:ml-3 text-primary font-bold text-sm tracking-widest transition-all duration-300 whitespace-nowrap overflow-hidden">
+                            GITHUB
+                          </span>
+                        </a>
+                        <a href="https://linkedin.com/in/karanam-kiran-prasad" target="_blank" rel="noreferrer" className="h-12 flex-1 sm:flex-none min-w-[3rem] px-[12px] rounded-full bg-[#12141c] border border-primary/30 flex items-center justify-center hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_25px_rgba(0,230,57,0.9)] transition-all duration-300 group overflow-hidden">
+                          <i className="devicon-linkedin-plain text-2xl text-gray-400 group-hover:text-primary transition-colors"></i>
+                          <span className="max-w-0 opacity-0 group-hover:max-w-[100px] group-hover:opacity-100 group-hover:ml-3 text-primary font-bold text-sm tracking-widest transition-all duration-300 whitespace-nowrap overflow-hidden">
+                            LINKEDIN
+                          </span>
+                        </a>
+                        <a href="mailto:kiranprasadkaranam@gmail.com" className="h-12 flex-1 sm:flex-none min-w-[3rem] px-[12px] rounded-full bg-[#12141c] border border-primary/30 flex items-center justify-center hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_25px_rgba(0,230,57,0.9)] transition-all duration-300 group overflow-hidden">
+                          <span className="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">mail</span>
+                          <span className="max-w-0 opacity-0 group-hover:max-w-[100px] group-hover:opacity-100 group-hover:ml-3 text-primary font-bold text-sm tracking-widest transition-all duration-300 whitespace-nowrap overflow-hidden">
+                            EMAIL
+                          </span>
+                        </a>
+                      </motion.div>
                     </div>
 
                     {/* Graphic */}
@@ -775,27 +797,7 @@ function App() {
                     </motion.div>
                   </motion.div>
                   
-                  {/* Social dock */}
-                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.5, duration: 0.8 }} className="absolute bottom-12 left-6 md:left-16 flex flex-wrap gap-4 justify-center lg:justify-start z-20">
-                    <a href="https://github.com/kkiran47" target="_blank" rel="noreferrer" className="h-12 min-w-[3rem] px-[12px] rounded-full bg-[#12141c] border border-primary/30 flex items-center justify-center hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_25px_rgba(0,230,57,0.9)] transition-all duration-300 group overflow-hidden">
-                      <i className="devicon-github-original text-2xl text-gray-400 group-hover:text-primary transition-colors"></i>
-                      <span className="max-w-0 opacity-0 group-hover:max-w-[100px] group-hover:opacity-100 group-hover:ml-3 text-primary font-bold text-sm tracking-widest transition-all duration-300 whitespace-nowrap overflow-hidden">
-                        GITHUB
-                      </span>
-                    </a>
-                    <a href="https://linkedin.com/in/karanam-kiran-prasad" target="_blank" rel="noreferrer" className="h-12 min-w-[3rem] px-[12px] rounded-full bg-[#12141c] border border-primary/30 flex items-center justify-center hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_25px_rgba(0,230,57,0.9)] transition-all duration-300 group overflow-hidden">
-                      <i className="devicon-linkedin-plain text-2xl text-gray-400 group-hover:text-primary transition-colors"></i>
-                      <span className="max-w-0 opacity-0 group-hover:max-w-[100px] group-hover:opacity-100 group-hover:ml-3 text-primary font-bold text-sm tracking-widest transition-all duration-300 whitespace-nowrap overflow-hidden">
-                        LINKEDIN
-                      </span>
-                    </a>
-                    <a href="mailto:kiranprasadkaranam@gmail.com" className="h-12 min-w-[3rem] px-[12px] rounded-full bg-[#12141c] border border-primary/30 flex items-center justify-center hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_25px_rgba(0,230,57,0.9)] transition-all duration-300 group overflow-hidden">
-                      <span className="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">mail</span>
-                      <span className="max-w-0 opacity-0 group-hover:max-w-[100px] group-hover:opacity-100 group-hover:ml-3 text-primary font-bold text-sm tracking-widest transition-all duration-300 whitespace-nowrap overflow-hidden">
-                        EMAIL
-                      </span>
-                    </a>
-                  </motion.div>
+                  {/* Social dock removed from here and placed under the CV button */}
                 </section>
 
                 {/* ABOUT / INTRODUCTION (Split View) */}
